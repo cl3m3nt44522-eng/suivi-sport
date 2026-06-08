@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>Suivi Sport</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var svg="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%231a1a1a'/><stop offset='100%25' stop-color='%23000000'/></linearGradient><linearGradient id='sh' x1='0' y1='0' x2='0.6' y2='1'><stop offset='0%25' stop-color='%23ffffff' stop-opacity='0.14'/><stop offset='55%25' stop-color='%23ffffff' stop-opacity='0'/></linearGradient><linearGradient id='db' x1='0' y1='0' x2='0' y2='1'><stop offset='0%25' stop-color='%23e8651f'/><stop offset='100%25' stop-color='%23a33f0a'/></linearGradient><clipPath id='cl'><rect width='512' height='512' rx='112'/></clipPath></defs><rect width='512' height='512' rx='112' fill='url(%23bg)'/><g clip-path='url(%23cl)'><rect width='512' height='512' fill='url(%23sh)'/></g><rect width='512' height='512' rx='112' fill='none' stroke='%23ffffff' stroke-opacity='0.09' stroke-width='2'/><g fill='url(%23db)'><rect x='156' y='235' width='200' height='42' rx='10'/><rect x='136' y='210' width='42' height='92' rx='9'/><rect x='110' y='225' width='32' height='62' rx='8'/><rect x='334' y='210' width='42' height='92' rx='9'/><rect x='370' y='225' width='32' height='62' rx='8'/></g><ellipse cx='230' cy='218' rx='70' ry='22' fill='%23ffffff' fill-opacity='0.07'/></svg>";
+  var l=document.createElement('link');
+  l.rel='apple-touch-icon';
+  l.href='data:image/svg+xml,'+svg;
+  document.head.appendChild(l);
+})();
+</script>
+<style>
+  :root {
+    --accent: #c95917;
+    --accent-glow: rgba(201,89,23,0.35);
+    --accent-dim: rgba(201,89,23,0.12);
+    --bg: #0a0a0c;
+    --bg2: #111115;
+    --card: #18181e;
+    --card2: #1f1f27;
+    --border: rgba(255,255,255,0.07);
+    --text: #f0eeea;
+    --text2: #8a8a95;
+    --text3: #55555f;
+    --radius: 20px;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: calc(80px + var(--safe-bottom));
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: calc(var(--safe-top) + 16px) 20px 0;
+    background: linear-gradient(180deg, var(--bg2) 0%, transparent 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .logo span { color: var(--accent); }
+  .streak-badge {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    padding: 12px 20px 0;
+    background: var(--bg2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .tab {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    color: var(--text3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; padding: 20px; animation: fadeUp 0.3s ease; }
+  .page.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: var(--text2);
+    margin-bottom: 14px;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .stat-tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 12px;
+    text-align: center;
+    animation: fadeUp 0.4s ease both;
+  }
+  .stat-tile:nth-child(1) { animation-delay: 0.05s; }
+  .stat-tile:nth-child(2) { animation-delay: 0.10s; }
+  .stat-tile:nth-child(3) { animation-delay: 0.15s; }
+  .stat-tile .val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-tile .lbl {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text3);
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── FORM CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.35s ease both;
+  }
+  .card:nth-child(2) { animation-delay: 0.07s; }
+  .card:nth-child(3) { animation-delay: 0.14s; }
+
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: var(--text2);
+    margin-bottom: 16px;
+  }
+
+  .field { margin-bottom: 14px; }
+  label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text3);
+    display: block;
+    margin-bottom: 6px;
+  }
+  input[type=text], input[type=date], input[type=number], textarea {
+    width: 100%;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+  textarea { min-height: 80px; resize: vertical; }
+  input[type=date]::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.3); }
+
+  /* ── GRID INPUTS ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* ── RANGE SLIDER ── */
+  .range-wrap { position: relative; }
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--card2);
+    border-radius: 4px;
+    border: none;
+    padding: 0;
+    margin-top: 4px;
+    box-shadow: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  input[type=range]:active::-webkit-slider-thumb { transform: scale(1.3); }
+  .range-val {
+    text-align: right;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+
+  /* ── BUTTON ── */
+  .btn-primary {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    box-shadow: 0 4px 20px var(--accent-glow);
+    margin-top: 4px;
+  }
+  .btn-primary:active { transform: scale(0.97); background: #a8450f; }
+
+  /* ── RECORDS ── */
+  .records-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .rec-tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.4s ease both;
+  }
+  .rec-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease;
+  }
+  .rec-tile.loaded::before { transform: scaleX(1); }
+  .rec-tile .icon { font-size: 22px; margin-bottom: 6px; }
+  .rec-tile .r-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .rec-tile .r-lbl {
+    font-size: 11px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  .rec-tile .r-unit {
+    font-size: 14px;
+    color: var(--text2);
+    font-weight: 300;
+  }
+
+  /* ── HISTORY ENTRIES ── */
+  .entry {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.3s ease both;
+    transition: transform 0.2s;
+  }
+  .entry:active { transform: scale(0.99); }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .entry-date {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--text);
+  }
+  .entry-forme {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .entry-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .pill {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: var(--text2);
+    font-weight: 500;
+  }
+  .pill .p-val { color: var(--text); font-weight: 600; }
+  .entry-course {
+    font-size: 13px;
+    color: var(--text2);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .entry-notes {
+    font-size: 12px;
+    color: var(--text3);
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    margin-top: 4px;
+  }
+  .btn-del {
+    background: rgba(255,59,48,0.1);
+    border: 1px solid rgba(255,59,48,0.3);
+    color: #ff3b30;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .btn-del:active { background: rgba(255,59,48,0.25); }
+
+  /* ── EMPTY STATE ── */
+  .empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text3);
+  }
+  .empty .big { font-size: 48px; margin-bottom: 12px; }
+  .empty p { font-size: 14px; line-height: 1.6; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: calc(90px + var(--safe-bottom));
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 100;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 0; }
+
+  /* ── PROGRAMME ── */
+  .semaine-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .sem-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text3);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .sem-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 16px var(--accent-glow);
+  }
+  .jour-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    animation: fadeUp 0.3s ease both;
+  }
+  .jour-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .jour-nom {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--text);
+  }
+  .jour-tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 8px;
+  }
+  .jour-tag.repos { background: rgba(255,255,255,0.05); color: var(--text3); }
+  .jour-tag.cardio { background: rgba(52,199,89,0.12); color: #34c759; border: 1px solid rgba(52,199,89,0.3); }
+  .jour-tag.renfo { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(201,89,23,0.3); }
+  .jour-tag.eps { background: rgba(90,120,255,0.12); color: #7b96ff; border: 1px solid rgba(90,120,255,0.3); }
+  .jour-chevron {
+    color: var(--text3);
+    font-size: 12px;
+    transition: transform 0.25s;
+    margin-left: 8px;
+  }
+  .jour-card.open .jour-chevron { transform: rotate(180deg); }
+  .jour-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .jour-card.open .jour-body { max-height: 400px; }
+  .jour-content {
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .exo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.4;
+  }
+  .exo-item:last-child { border-bottom: none; }
+  .exo-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .exo-dot.green { background: #34c759; }
+  .exo-dot.gray { background: var(--text3); }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">SUIVI <span>SPORT</span></div>
+    <div class="streak-badge" id="streakBadge">0 SÉANCES</div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('saisie',this)">✦ Séance</button>
+    <button class="tab" onclick="switchTab('records',this)">🏆 Records</button>
+    <button class="tab" onclick="switchTab('historique',this)">📅 Historique</button>
+    <button class="tab" onclick="switchTab('programme',this)">📋 Programme</button>
+  </div>
+</div>
+
+<!-- PAGE SAISIE -->
+<div id="page-saisie" class="page active">
+  <div class="card">
+    <div class="card-title">Informations</div>
+    <div class="field">
+      <label>Date</label>
+      <input type="date" id="date">
+    </div>
+    <div class="field">
+      <label>Course / Cardio</label>
+      <input type="text" id="course" placeholder="ex: 25 min à 5:32/km">
+    </div>
+    <div class="field">
+      <label>Sommeil</label>
+      <input type="number" id="sommeil" step="0.5" min="0" max="24" placeholder="heures">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Exercices</div>
+    <div class="grid-2">
+      <div class="field">
+        <label>Gainage (s)</label>
+        <input type="number" id="gainage" placeholder="0" min="0">
+      </div>
+      <div class="field">
+        <label>Pompes</label>
+        <input type="number" id="pompes" placeholder="0" min="0">
+      </div>
+      <div class="field">
+        <label>Squats</label>
+        <input type="number" id="squats" placeholder="0" min="0">
+      </div>
+      <div class="field">
+        <label>Abdos</label>
+        <input type="number" id="abdos" placeholder="0" min="0">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Ressenti</div>
+    <div class="field">
+      <label>Forme du jour — <span id="formeLabel">5</span>/10</label>
+      <div class="range-wrap">
+        <input type="range" id="forme" min="1" max="10" value="5"
+          oninput="document.getElementById('formeLabel').textContent=this.value">
+      </div>
+    </div>
+    <div class="field">
+      <label>Notes</label>
+      <textarea id="notes" placeholder="Observations, sensations…"></textarea>
+    </div>
+    <button class="btn-primary" onclick="ajouter()">ENREGISTRER LA SÉANCE</button>
+  </div>
+</div>
+
+<!-- PAGE RECORDS -->
+<div id="page-records" class="page">
+  <div class="section-title">Records personnels</div>
+  <div class="records-grid" id="recordsGrid"></div>
+  <div class="section-title">Moyennes</div>
+  <div class="stats-row" id="statsRow"></div>
+</div>
+
+<!-- PAGE HISTORIQUE -->
+<div id="page-historique" class="page">
+  <div class="section-title">Toutes les séances</div>
+  <div id="historiqueList"></div>
+</div>
+
+<!-- PAGE PROGRAMME -->
+<div id="page-programme" class="page">
+  <div class="semaine-toggle">
+    <button class="sem-btn active" onclick="switchSemaine('A',this)">SEMAINE A</button>
+    <button class="sem-btn" onclick="switchSemaine('B',this)">SEMAINE B</button>
+  </div>
+  <div id="programmeList"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let donnees = JSON.parse(localStorage.getItem("sportData_v2")) || [];
+
+// Init date
+document.getElementById("date").value = new Date().toISOString().split("T")[0];
+
+function save() {
+  localStorage.setItem("sportData_v2", JSON.stringify(donnees));
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2400);
+}
+
+function switchTab(id, btn) {
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("page-" + id).classList.add("active");
+  if (id === "records") renderRecords();
+  if (id === "historique") renderHistorique();
+}
+
+function ajouter() {
+  const d = {
+    date: document.getElementById("date").value,
+    course: document.getElementById("course").value.trim(),
+    gainage: Number(document.getElementById("gainage").value) || 0,
+    pompes: Number(document.getElementById("pompes").value) || 0,
+    squats: Number(document.getElementById("squats").value) || 0,
+    abdos: Number(document.getElementById("abdos").value) || 0,
+    sommeil: Number(document.getElementById("sommeil").value) || 0,
+    forme: Number(document.getElementById("forme").value) || 5,
+    notes: document.getElementById("notes").value.trim()
+  };
+  if (!d.date) { showToast("⚠️ Choisis une date !"); return; }
+  donnees.unshift(d);
+  save();
+  updateStreak();
+  // reset
+  ["course","gainage","pompes","squats","abdos","sommeil","notes"].forEach(id => {
+    document.getElementById(id).value = "";
+  });
+  document.getElementById("forme").value = 5;
+  document.getElementById("formeLabel").textContent = "5";
+  showToast("✓ Séance enregistrée !");
+}
+
+function supprimer(i) {
+  if (!confirm("Supprimer cette séance ?")) return;
+  donnees.splice(i, 1);
+  save();
+  updateStreak();
+  renderHistorique();
+  showToast("Séance supprimée");
+}
+
+function updateStreak() {
+  document.getElementById("streakBadge").textContent = donnees.length + " SÉANCE" + (donnees.length > 1 ? "S" : "");
+}
+
+function renderRecords() {
+  const grid = document.getElementById("recordsGrid");
+  const stats = document.getElementById("statsRow");
+  if (!donnees.length) {
+    grid.innerHTML = '<div class="empty"><div class="big">🏆</div><p>Aucune séance<br>pour l\'instant</p></div>';
+    stats.innerHTML = "";
+    return;
+  }
+  let maxP = 0, maxS = 0, maxG = 0, maxA = 0;
+  let totForme = 0, totSommeil = 0, n = donnees.length;
+  donnees.forEach(d => {
+    maxP = Math.max(maxP, d.pompes);
+    maxS = Math.max(maxS, d.squats);
+    maxG = Math.max(maxG, d.gainage);
+    maxA = Math.max(maxA, d.abdos);
+    totForme += d.forme;
+    totSommeil += d.sommeil;
+  });
+  const recs = [
+    { icon:"💪", val: maxP, lbl:"Pompes", unit:"reps" },
+    { icon:"🦵", val: maxS, lbl:"Squats", unit:"reps" },
+    { icon:"⏱️", val: maxG, lbl:"Gainage", unit:"sec" },
+    { icon:"🔥", val: maxA, lbl:"Abdos", unit:"reps" }
+  ];
+  grid.innerHTML = recs.map((r,i) => `
+    <div class="rec-tile" style="animation-delay:${i*0.06}s">
+      <div class="icon">${r.icon}</div>
+      <div class="r-val">${r.val} <span class="r-unit">${r.unit}</span></div>
+      <div class="r-lbl">${r.lbl}</div>
+    </div>
+  `).join("");
+  setTimeout(() => {
+    document.querySelectorAll(".rec-tile").forEach(t => t.classList.add("loaded"));
+  }, 100);
+  stats.innerHTML = `
+    <div class="stat-tile"><div class="val">${n}</div><div class="lbl">Séances</div></div>
+    <div class="stat-tile"><div class="val">${(totForme/n).toFixed(1)}</div><div class="lbl">Forme moy.</div></div>
+    <div class="stat-tile"><div class="val">${(totSommeil/n).toFixed(1)}h</div><div class="lbl">Sommeil moy.</div></div>
+  `;
+}
+
+function renderHistorique() {
+  const list = document.getElementById("historiqueList");
+  if (!donnees.length) {
+    list.innerHTML = '<div class="empty"><div class="big">📅</div><p>Aucune séance<br>enregistrée</p></div>';
+    return;
+  }
+  list.innerHTML = donnees.map((d, i) => {
+    const pills = [
+      d.pompes  ? `<span class="pill">💪 <span class="p-val">${d.pompes}</span> pompes</span>` : "",
+      d.squats  ? `<span class="pill">🦵 <span class="p-val">${d.squats}</span> squats</span>` : "",
+      d.gainage ? `<span class="pill">⏱️ <span class="p-val">${d.gainage}s</span> gainage</span>` : "",
+      d.abdos   ? `<span class="pill">🔥 <span class="p-val">${d.abdos}</span> abdos</span>` : "",
+      d.sommeil ? `<span class="pill">😴 <span class="p-val">${d.sommeil}h</span></span>` : "",
+    ].filter(Boolean).join("");
+    return `
+      <div class="entry" style="animation-delay:${Math.min(i*0.05,0.3)}s">
+        <div class="entry-header">
+          <div class="entry-date">${formatDate(d.date)}</div>
+          ${d.forme ? `<div class="entry-forme">FORME ${d.forme}/10</div>` : ""}
+        </div>
+        ${d.course ? `<div class="entry-course">🏃 ${d.course}</div>` : ""}
+        ${pills ? `<div class="entry-pills">${pills}</div>` : ""}
+        ${d.notes ? `<div class="entry-notes">📝 ${d.notes}</div>` : ""}
+        <button class="btn-del" onclick="supprimer(${i})">Supprimer</button>
+      </div>
+    `;
+  }).join("");
+}
+
+function formatDate(str) {
+  if (!str) return "—";
+  const [y,m,d] = str.split("-");
+  const months = ["Jan","Fév","Mar","Avr","Mai","Jun","Jul","Aoû","Sep","Oct","Nov","Déc"];
+  return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+}
+
+// ── PROGRAMME ──
+const PROGRAMME = {
+  A: [
+    { nom:"Lundi", tag:"renfo", exos:[
+      {t:"💪 Pompes genoux : 3 × max"},
+      {t:"⏱️ Gainage : 3 × 30 s"},
+      {t:"🦵 Squats : 3 × 15"},
+      {t:"🔥 Crunchs : 2 × 15"}
+    ]},
+    { nom:"Mardi", tag:"cardio", exos:[
+      {t:"🏃 Course : 20 à 25 min à allure confortable", dot:"green"},
+      {t:"🧘 Étirements : 5 min", dot:"green"}
+    ]},
+    { nom:"Mercredi", tag:"eps", label:"EPS 8h–10h", exos:[
+      {t:"— Pas de séance", dot:"gray"},
+      {t:"🧘 Étirements : 5 à 10 min", dot:"gray"}
+    ]},
+    { nom:"Jeudi", tag:"renfo", exos:[
+      {t:"💪 Pompes genoux : 3 × max"},
+      {t:"⏱️ Gainage : 3 × 30 s"},
+      {t:"🪑 Chaise : 3 × max"},
+      {t:"🔥 Crunchs : 2 × 15"}
+    ]},
+    { nom:"Vendredi", tag:"cardio", exos:[
+      {t:"🏃 Course : 20 à 25 min", dot:"green"},
+      {t:"🧘 Étirements : 5 min", dot:"green"}
+    ]},
+    { nom:"Samedi", tag:"renfo", exos:[
+      {t:"🦵 Squats : 3 × 20"},
+      {t:"💪 Pompes genoux : 3 × max"},
+      {t:"⏱️ Gainage : 3 × max"},
+      {t:"🪑 Chaise : 3 × max"}
+    ]},
+    { nom:"Dimanche", tag:"repos", exos:[
+      {t:"— Repos", dot:"gray"},
+      {t:"🚶 Marche ou étirements légers", dot:"gray"}
+    ]}
+  ],
+  B: [
+    { nom:"Lundi", tag:"renfo", exos:[
+      {t:"💪 Pompes genoux : 3 × max"},
+      {t:"⏱️ Gainage : 3 × 30 s"},
+      {t:"🦵 Squats : 3 × 15"},
+      {t:"🔥 Crunchs : 2 × 15"}
+    ]},
+    { nom:"Mardi", tag:"cardio", exos:[
+      {t:"🏃 Course : 20 à 25 min", dot:"green"},
+      {t:"🧘 Étirements : 5 min", dot:"green"}
+    ]},
+    { nom:"Mercredi", tag:"eps", label:"EPS 8h–10h", exos:[
+      {t:"— Pas de séance", dot:"gray"},
+      {t:"🧘 Étirements : 5 à 10 min", dot:"gray"}
+    ]},
+    { nom:"Jeudi", tag:"eps", label:"EPS 14h–16h", exos:[
+      {t:"— Pas de séance de renforcement", dot:"gray"},
+      {t:"🧘 Étirements : 5 à 10 min", dot:"gray"}
+    ]},
+    { nom:"Vendredi", tag:"renfo", exos:[
+      {t:"💪 Pompes genoux : 4 × max"},
+      {t:"⏱️ Gainage : 3 × 30 s"},
+      {t:"🪑 Chaise : 3 × max"}
+    ]},
+    { nom:"Samedi", tag:"cardio", exos:[
+      {t:"🏃 Course : 20 à 30 min", dot:"green"},
+      {t:"🧘 Étirements : 5 min", dot:"green"}
+    ]},
+    { nom:"Dimanche", tag:"repos", exos:[
+      {t:"— Repos", dot:"gray"}
+    ]}
+  ]
+};
+
+let semaineActive = "A";
+
+function switchSemaine(s, btn) {
+  semaineActive = s;
+  document.querySelectorAll(".sem-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderProgramme();
+}
+
+function toggleJour(card) {
+  card.classList.toggle("open");
+}
+
+function renderProgramme() {
+  const today = new Date().getDay();
+  const jourIndex = [6,0,1,2,3,4,5];
+  const list = document.getElementById("programmeList");
+  const jours = PROGRAMME[semaineActive];
+  list.innerHTML = jours.map((j, i) => {
+    const isToday = jourIndex[today] === i;
+    const tagLabel = j.tag === "eps" ? j.label : {renfo:"Renfo",cardio:"Cardio",repos:"Repos"}[j.tag];
+    const exosHtml = j.exos.map(e => `
+      <div class="exo-item">
+        <div class="exo-dot ${e.dot||""}"></div>
+        <span>${e.t}</span>
+      </div>
+    `).join("");
+    return `
+      <div class="jour-card ${isToday ? "open" : ""}" style="animation-delay:${i*0.05}s" onclick="toggleJour(this)">
+        <div class="jour-header">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="jour-nom">${isToday ? "▶ " : ""}${j.nom}</div>
+            <span class="jour-tag ${j.tag}">${tagLabel}</span>
+          </div>
+          <span class="jour-chevron">▼</span>
+        </div>
+        <div class="jour-body">
+          <div class="jour-content">${exosHtml}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+updateStreak();
+renderProgramme();
+</script>
+</body>
+</html>
